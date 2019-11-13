@@ -3,7 +3,7 @@ import styled from "styled-components";
 const MoviesStyled = styled.div`
   {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    // grid-template-columns: 1fr 1fr 1fr;
     grip-gap: 16px;
 
     .card {
