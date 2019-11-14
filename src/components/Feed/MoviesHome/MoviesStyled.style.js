@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const MoviesStyled = styled.div`
 
-  .movies--feed--recommendations {
+  {
     display: inline-flex;
       img {
         height: 100%;
