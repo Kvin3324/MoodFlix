@@ -4,6 +4,7 @@ const MoviesStyled = styled.div`
 
   {
     display: inline-flex;
+    margin-bottom: 10%;
       img {
         height: 100%;
         width: 7vw;
