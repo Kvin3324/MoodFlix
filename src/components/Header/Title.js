@@ -1,8 +1,9 @@
 import React from "react";
+import TitleStyled from "./TitleStyled.style";
 
 function Title() {
   return(
-    <h1>Wiki Mood</h1>
+    <TitleStyled>Wiki Mood</TitleStyled>
   )
 }
 
