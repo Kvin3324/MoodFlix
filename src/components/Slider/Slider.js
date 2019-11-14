@@ -8,20 +8,20 @@ function Slider(props) {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 4,
-      slidesToSlide: 3, // optional, default to 1.
+      slidesToSlide: 3,
       partialVisibilityGutter: 10
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
       items: 2,
-      slidesToSlide: 2, // optional, default to 1.
+      slidesToSlide: 2,
       partialVisibilityGutter: 40
 
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
       items: 1,
-      slidesToSlide: 1, // optional, default to 1.
+      slidesToSlide: 1,
       partialVisibilityGutter: 40
     },
   };
@@ -30,9 +30,6 @@ function Slider(props) {
     <Carousel
       additionalTransfrom={0}
       arrows
-      // autoPlay={true}
-      // autoPlaySpeed={1000}
-      // centerMode={false}
       className=""
       containerClass="container"
       dotListClass=""
