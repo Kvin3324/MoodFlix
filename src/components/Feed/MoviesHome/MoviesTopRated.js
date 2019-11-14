@@ -1,47 +1,41 @@
-import React from "react";
-import MoviesStyled from "./MoviesStyled.style";
+import React, { useState, useEffect } from "react";
+import Slider from "../../Slider/Slider";
+import Movie from "../../Movie/Movie";
 
 function MoviesTopRated() {
-  return(
-    <MoviesStyled className="movies--feed col-lg-12">
+  const [data, setData] = useState([]);
 
-    <div className="movies--feed--top--rated">
-        <h1>Top Rated</h1>
-        <div className="row">
-          <div className="card">
-            <div className="card-body">
-              <div className="card--img">
-                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-              </div>
-              <div className="card-product-infos">
-                <h2>Product name</h2>
-              </div>
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-body">
-              <div className="card--img">
-                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-              </div>
-              <div className="card-product-infos">
-                <h2>Product name</h2>
-              </div>
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-body">
-              <div className="card--img">
-                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-              </div>
-              <div className="card-product-infos">
-                <h2>Product name</h2>
-              </div>
-            </div>
+  useEffect(() => {
+    fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_API_KEY_MOVIES}&language=en-US&page=1`)
+      .then(response => response.json())
+      .then(dataParsed => setData([...dataParsed.results]))
+  }, []);
+
+  console.log(data);
+
+  return(
+      <React.Fragment>
+        <div className="movies--feed col-lg-12">
+          <h1>Top Rated</h1>
+          <div className="movies--feed--top--rated">
+          <Slider>
+            {
+              function () {
+                if (data.length === 0) return null;
+
+                if (data.length !== 0) {
+                  return data.map((movie, index) => {
+                    return(
+                      <Movie movie={movie} key={index} />
+                    )
+                  })
+                }
+              }()
+            }
+          </Slider>
           </div>
         </div>
-      </div>
-      </MoviesStyled>
-
+      </React.Fragment>
   )
 }
 
