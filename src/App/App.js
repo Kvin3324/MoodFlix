@@ -27,7 +27,7 @@ function App() {
                 <Categories />
               </div>
             </section>
-            <section className="right-section col-lg-8">
+            <section className="right-section col-lg-9">
                 {/* <Movies /> */}
                 <Feed />
             </section>
