@@ -12,7 +12,7 @@
 /build
 
 .vscode
-.package-lock.json
+package-lock.json
 .env
 
 # misc
