@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import MoviesStyled from "./MoviesStyled.style";
 import Slider from "../../Slider/Slider";
 import Movie from "../../Movie/Movie";
 
@@ -12,11 +11,11 @@ function Movies() {
       .then(dataParsed => setData([...dataParsed.results]))
   }, []);
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <React.Fragment>
-      <div className="movies--feed col-lg-12">
+      <div className="movies--feed mt-5 col-lg-12">
         <h1>Recommended for you</h1>
         <div className="movies--feed--recommendations">
         <Slider>
