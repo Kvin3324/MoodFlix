@@ -1,5 +1,6 @@
 .App {
   background-color: #232D32;
+  font-family: "Roboto";
 }
 
 .App-header {
@@ -28,4 +29,8 @@ h1, h3 {
   text-align: left;
   padding: 10px 0;
   font-size: 1.5em;
+}
+
+.react-multiple-carousel__arrow {
+  z-index: 10!important;
 }
