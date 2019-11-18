@@ -11,8 +11,6 @@ function Movies() {
       .then(dataParsed => setData([...dataParsed.results]))
   }, []);
 
-  // console.log(data);
-
   return (
     <React.Fragment>
       <div className="movies--feed mt-5 col-lg-12">
