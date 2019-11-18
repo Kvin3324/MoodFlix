@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const MoviesStyled = styled.div`
-
   {
     display: inline-flex;
     margin-bottom: 10%;
@@ -16,6 +15,9 @@ const MoviesStyled = styled.div`
         font-weight: bold;
         margin: 0;
         color: white;
+      }
+      :hover {
+        cursor: pointer;
       }
   }
 `
