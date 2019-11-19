@@ -26,11 +26,11 @@ function EventOverview(props) {
             return (
               <React.Fragment>
                 <AboutMovieStyled className="movie--about">
-                <div className="go--to--home">
-                  <a href="#/" alt="home">
-                    <i class="fas fa-home"></i>
-                  </a>
-                </div>
+                  <div className="go--to--home">
+                    <a href="#/" alt="home">
+                      <i className="fas fa-home"></i>
+                    </a>
+                  </div>
                   <div className="movie--about--header">
                     <div className="movie--about--backdrop">
                       <img src={`https://image.tmdb.org/t/p/w500/${data.backdrop_path}`} alt="backdrop"></img>
@@ -43,42 +43,39 @@ function EventOverview(props) {
                         <div className="movie--about--infos--vote">
                           {
                             function () {
-                              if (data.vote_average > 5 && data.vote_average < 8 ) {
-                                return(
+                              if (data.vote_average > 8) {
+                                return (
                                   <>
-                                  <p>rating: </p>
-                                  <i class="fas fa-star"></i>
-                                  <i class="fas fa-star"></i>
-                                  <i class="fas fa-star"></i>
-                                  <i class="far fa-star"></i>
-                                  <i class="far fa-star"></i>
-                                  <p>{data.vote_average} </p>
+                                    <p>rating:</p>
+                                    <p>
+                                      {[...Array(4)].map((e, i) => <i className="fas fa-star" key={i}></i>)}
+                                      <i className="fas fa-star-half"></i>
+                                    </p>
+                                    <p>{data.vote_average} </p>
                                   </>
                                 )
                               }
-                              if (data.vote_average > 8) {
-                                return(
+                              if (data.vote_average > 5 && data.vote_average < 8) {
+                                return (
                                   <>
-                                  <p>rating: </p>
-                                  <i class="fas fa-star"></i>
-                                  <i class="fas fa-star"></i>
-                                  <i class="fas fa-star"></i>
-                                  <i class="fas fa-star"></i>
-                                  <i class="fas fa-star-half"></i>
-                                  <p>{data.vote_average} </p>
+                                    <p>rating:</p>
+                                    <p>
+                                      {[...Array(3)].map((e, i) => <i className="fas fa-star" key={i}></i>)}
+                                      {[...Array(2)].map((e, i) => <i className="far fa-star" key={i}></i>)}
+                                    </p>
+                                    <p>{data.vote_average} </p>
                                   </>
                                 )
                               }
                               if (data.vote_average < 5) {
-                                return(
+                                return (
                                   <>
-                                  <p>rating: </p>
-                                  <i class="fas fa-star"></i>
-                                  <i class="fas fa-star"></i>
-                                  <i class="far fa-star"></i>
-                                  <i class="far fa-star"></i>
-                                  <i class="far fa-star"></i>
-                                  <p>{data.vote_average} </p>
+                                    <p>rating:</p>
+                                    <p>
+                                      {[...Array(2)].map((e, i) => <i className="fas fa-star" key={i}></i>)}
+                                      {[...Array(3)].map((e, i) => <i className="far fa-star" key={i}></i>)}
+                                    </p>
+                                    <p>{data.vote_average} </p>
                                   </>
                                 )
                               }
