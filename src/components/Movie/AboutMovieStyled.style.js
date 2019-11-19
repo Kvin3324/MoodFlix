@@ -14,6 +14,11 @@ const AboutMovieStyled = styled.div`
       margin-left: 20px;
     }
   }
+  .movie--about--infos--genres {
+    p {
+      margin-left: 10px;
+    }
+  }
   .movie--about--description {
     margin: 5% 0;
   }
