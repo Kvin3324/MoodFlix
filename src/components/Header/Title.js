@@ -3,7 +3,11 @@ import TitleStyled from "./TitleStyled.style";
 
 function Title() {
   return(
-    <TitleStyled>Wiki Mood</TitleStyled>
+    <TitleStyled>
+      <a href="#/" alt="home">
+        Wiki Mood
+      </a>
+      </TitleStyled>
   )
 }
 
