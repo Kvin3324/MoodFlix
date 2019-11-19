@@ -1,14 +1,11 @@
 import React from 'react';
 import { Route, HashRouter } from "react-router-dom";
-// import logo from '../logo.svg';
 import '../App.css'
 import Title from '../components/Header/Title';
-import Trending from '../components/LeftSection/Filters/Trending';
-import TvMovies from '../components/LeftSection/Filters/TvMovies';
-import Watchlist from '../components/LeftSection/Filters/Watchlist';
-import Categories from '../components/LeftSection/Filters/Categories/Categories';
 import Feed from '../container/Feed';
 import AboutMovie from "../components/Movie/AboutMovie";
+import TrendingMovies from "../components/LeftSection/Filters/Trending/TrendingMovies";
+import Filters from '../components/Filters/Filters';
 
 function App() {
   return (
@@ -22,15 +19,14 @@ function App() {
             <section className="left-section col-lg-2">
               <Title />
               <div className="filters">
-                <Trending />
-                <TvMovies />
-                <Watchlist />
-                <Categories />
+                <Filters />
               </div>
             </section>
             <section className="right-section col-lg-9">
               <Route exact path="/" component={Feed} />
+
               <Route exact path="/about/:id" component={AboutMovie} ></Route>
+              <Route exact path="/trending" component={TrendingMovies} ></Route>
             </section>
           </div>
         </main>
