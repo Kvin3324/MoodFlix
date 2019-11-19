@@ -1,6 +1,4 @@
-// import React from "react";
-import React, { useState, useEffect, useRef } from "react";
-
+import React, { useState, useEffect } from "react";
 import AboutMovieStyled from "./AboutMovieStyled.style";
 
 function EventOverview(props) {
@@ -14,6 +12,10 @@ function EventOverview(props) {
 
   console.log(data);
 
+  function openNewLink() {
+    window.open(`https://www.youtube.com/results?search_query=${data.title}`, '_blank');
+  }
+
   return (
     <div>
       {
@@ -26,16 +28,15 @@ function EventOverview(props) {
                 <div className="movie--about--title">
                   <h1>{data.title}</h1>
                 </div>
-                {/* <div className="separator"></div> */}
                 <div className="movie--about--infos">
-                  <p>popularity: {data.vote_average}</p>
+                  <p>popularity: {data.vote_average} </p>
 
                   <div className="movie--about--infos--genres">
                     {
                       function () {
                         return data.genres.map((genre, index) => {
                           return (
-                            <p key={index}> {genre.name} </p>
+                            <p key={index}> {genre.name}/</p>
                           )
                         })
                       }()
@@ -45,11 +46,9 @@ function EventOverview(props) {
                   <p> {data.release_date} </p>
                 </div>
                 <div className="movie--about--description">
-                  {/* <span className="is__arrow__close" onClick={e => props.closeOverview(e)} >&times;</span> */}
                   <p>{data.overview}</p>
-                  {/* <div className="separator"></div> */}
                 </div>
-                <button className="btn btn-primary">Watch BA</button>
+                <button className="btn btn-primary" onClick={openNewLink}  > Watch BA</button>
               </AboutMovieStyled>
             )
           }
