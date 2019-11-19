@@ -17,44 +17,111 @@ function EventOverview(props) {
   }
 
   return (
-    <div>
+    <React.Fragment>
       {
         function () {
           if (data.length === 0) return "loading";
 
           if (data.length !== 0) {
             return (
-              <AboutMovieStyled className="movie--about">
-                <div className="movie--about--title">
-                  <h1>{data.title}</h1>
+              <React.Fragment>
+                <AboutMovieStyled className="movie--about">
+                <div className="go--to--home">
+                  <a href="#/" alt="home">
+                    <i class="fas fa-home"></i>
+                  </a>
                 </div>
-                <div className="movie--about--infos">
-                  <p>popularity: {data.vote_average} </p>
+                  <div className="movie--about--header">
+                    <div className="movie--about--backdrop">
+                      <img src={`https://image.tmdb.org/t/p/w500/${data.backdrop_path}`} alt="backdrop"></img>
+                    </div>
+                    <div className="movie--about--meta">
+                      <div className="movie--about--title">
+                        <h1>{data.title}</h1>
+                      </div>
+                      <div className="movie--about--infos">
+                        <div className="movie--about--infos--vote">
+                          {
+                            function () {
+                              if (data.vote_average > 5 && data.vote_average < 8 ) {
+                                return(
+                                  <>
+                                  <p>rating: </p>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="far fa-star"></i>
+                                  <i class="far fa-star"></i>
+                                  <p>{data.vote_average} </p>
+                                  </>
+                                )
+                              }
+                              if (data.vote_average > 8) {
+                                return(
+                                  <>
+                                  <p>rating: </p>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star-half"></i>
+                                  <p>{data.vote_average} </p>
+                                  </>
+                                )
+                              }
+                              if (data.vote_average < 5) {
+                                return(
+                                  <>
+                                  <p>rating: </p>
+                                  <i class="fas fa-star"></i>
+                                  <i class="fas fa-star"></i>
+                                  <i class="far fa-star"></i>
+                                  <i class="far fa-star"></i>
+                                  <i class="far fa-star"></i>
+                                  <p>{data.vote_average} </p>
+                                  </>
+                                )
+                              }
+                            }()
+                          }
+                        </div>
 
-                  <div className="movie--about--infos--genres">
-                    {
-                      function () {
-                        return data.genres.map((genre, index) => {
-                          return (
-                            <p key={index}> {genre.name}/</p>
-                          )
-                        })
-                      }()
-                    }
+                        <div className="movie--about--infos--genres">
+                          <p>genres:</p>
+                          {
+                            function () {
+                              return data.genres.map((genre, index) => {
+                                return (
+                                  <p key={index}>{genre.name}</p>
+                                )
+                              })
+                            }()
+                          }
+                        </div>
+                        <div className="movie--about--infos--runtime">
+                          <p>runtime: {data.runtime}min</p>
+                        </div>
+                        <div className="movie--about--infos--date">
+                          {
+                            function () {
+                              return <p>release date: {new Date(data.release_date).getFullYear()} </p>
+                            }()
+                          }
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <p>{data.runtime}min</p>
-                  <p> {data.release_date} </p>
-                </div>
-                <div className="movie--about--description">
-                  <p>{data.overview}</p>
-                </div>
-                <button className="btn btn-primary" onClick={openNewLink}  > Watch BA</button>
-              </AboutMovieStyled>
+                  <div className="movie--about--description">
+                    <p>{data.overview}</p>
+                  </div>
+                  <button className="btn btn-primary" onClick={openNewLink}>Watch BA</button>
+                </AboutMovieStyled>
+              </React.Fragment>
             )
           }
         }()
       }
-    </div>
+    </React.Fragment>
   )
 }
 
