@@ -1,26 +1,43 @@
 import styled from "styled-components";
 
 const AboutMovieStyled = styled.div`
+  .go--to--home {
+    position: absolute;
+    top: 3%;
+    a {
+     color: white;
+     text-decoration: none;
+   }
+   i {
+     font-size: 1.5em;
+   }
+  }
   color: white;
-  .movie--about--title {
-    h1 {
-      font-size: 6em;
+  margin-top: 14%;
+  margin-left: 4%;
+  .movie--about--header {
+    margin-bottom: 10%;
+    img {
+      float: left;
     }
   }
-  .movie--about--infos {
-    display: inline-flex;
+  .movie--about--meta {
+    margin-left: 50%;
+    h1 {
+      font-size: 3em;
+    }
     p {
       display: inline-flex;
-      margin-left: 20px;
-    }
-  }
-  .movie--about--infos--genres {
-    p {
-      margin-left: 10px;
+      padding: 0 5px;
     }
   }
   .movie--about--description {
     margin: 5% 0;
+    font-size: 1.4em;
+  }
+  button, button:hover {
+    background-color: #21232A;
+    border: none;
   }
 `
 
