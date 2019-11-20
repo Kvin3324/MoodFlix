@@ -16,7 +16,7 @@ const AboutMovieStyled = styled.div`
   margin-top: 14%;
   margin-left: 4%;
   .movie--about--header {
-    margin-bottom: 10%;
+    margin-bottom: 2%;
     img {
       float: left;
     }
