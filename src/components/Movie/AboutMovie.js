@@ -109,6 +109,7 @@ function EventOverview(props) {
                     </div>
                   </div>
                   <div className="movie--about--description">
+                    <h2>SYNOPSIS</h2>
                     <p>{data.overview}</p>
                   </div>
                   <button className="btn btn-primary" onClick={openNewLink}>Watch BA</button>
