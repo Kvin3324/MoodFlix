@@ -4,6 +4,7 @@ import '../App.css'
 import Title from '../components/Header/Title';
 import Feed from '../container/Feed';
 import AboutMovie from "../components/Movie/AboutMovie";
+import AboutTv from "../components/Tv/AboutTv";
 import TrendingMovies from "../components/LeftSection/Filters/Trending/TrendingMovies";
 import Filters from '../components/Filters/Filters';
 
@@ -26,6 +27,7 @@ function App() {
               <Route exact path="/" component={Feed} />
 
               <Route exact path="/about/:id" component={AboutMovie} ></Route>
+              <Route exact path="/aboutTv/:id" component={AboutTv} ></Route>
               <Route exact path="/trending" component={TrendingMovies} ></Route>
             </section>
           </div>
