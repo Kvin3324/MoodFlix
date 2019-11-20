@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function Movie(props) {
   return (
     <React.Fragment>
-      <MoviesStyled className="movie mr-5" onClick={props.toggleClass}>
+      <MoviesStyled className="movie mr-5">
         <Link to={`/about/${props.movie.id}`}>
           <div className="movie--body mr-5">
             <div className="movie--img">
