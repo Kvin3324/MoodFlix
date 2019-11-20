@@ -1,8 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Movie from "../../../Movie/Movie";
+import Tv from "../../../Tv/Tv";
 
 function TrendingMovies() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.REACT_APP_API_KEY_MOVIES}`)
+      .then(response => response.json())
+      .then(dataParsed => setData([...dataParsed.results]))
+  }, []);
+
+  console.log(data);
+
   return (
-    <h1>Trending Movies:</h1>
+    <React.Fragment>
+      <h1>Trending Movies:</h1>
+      {
+        function () {
+          if (data.length === 0) return "loading";
+
+          if (data.length !== 0) {
+            return data.map((movie, index) => {
+              if (movie.media_type === "movie") {
+                return <Movie movie={movie} key={index} />
+              } else if (movie.media_type === "tv") {
+                return <Tv movie={movie} key={index} />
+              }
+            })
+          }
+        }()
+      }
+    </React.Fragment>
   )
 }
 
