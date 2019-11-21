@@ -6,6 +6,7 @@ import Feed from '../container/Feed';
 import AboutMovie from "../components/Movie/AboutMovie";
 import AboutTv from "../components/Tv/AboutTv";
 import TrendingMovies from "../components/LeftSection/Filters/Trending/TrendingMovies";
+import TvMovies from "../components/LeftSection/Filters/TvMovies/FeedTvMovies";
 import Filters from '../components/Filters/Filters';
 
 function App() {
@@ -25,9 +26,10 @@ function App() {
             </section>
             <section className="right-section col-lg-9">
               <Route exact path="/" component={Feed} />
-              <Route exact path="/about/:id" component={AboutMovie} ></Route>
+              <Route exact path="/aboutMovie/:id" component={AboutMovie} ></Route>
               <Route exact path="/aboutTv/:id" component={AboutTv} ></Route>
               <Route exact path="/trending" component={TrendingMovies} ></Route>
+              <Route exact path="/tv&movies" component={TvMovies} ></Route>
             </section>
           </div>
         </main>
