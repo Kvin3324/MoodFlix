@@ -1,8 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import FiltersStyled from "../FiltersStyle/FiltersStyled.style";
 
 function TvMovies() {
   return(
-    <h3>Tv & Movies</h3>
+    <FiltersStyled>
+      <Link to={`/tv&movies`}>
+        <h3>Tv & Movies</h3>
+      </Link>
+    </FiltersStyled>
   )
 }
 
