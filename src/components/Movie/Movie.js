@@ -7,7 +7,7 @@ function Movie(props) {
   return (
     <React.Fragment>
       <MoviesStyled className="movie mr-5">
-        <Link to={`/about/${props.movie.id}`}>
+        <Link to={`/aboutMovie/${props.movie.id}`}>
           <div className="movie--body mr-5">
             <div className="movie--img">
               <img src={`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}`} alt="poster" />
