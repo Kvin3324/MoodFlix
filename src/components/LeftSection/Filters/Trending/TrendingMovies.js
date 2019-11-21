@@ -15,7 +15,7 @@ function TrendingMovies() {
 
   return (
     <React.Fragment>
-      <h1>Trending Movies:</h1>
+      <h1 className=" mt-3 mb-5">Trending Movies & Tv (by week):</h1>
       {
         function () {
           if (data.length === 0) return "loading";
