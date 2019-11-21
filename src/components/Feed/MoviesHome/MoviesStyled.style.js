@@ -15,6 +15,7 @@ const MoviesStyled = styled.div`
         font-weight: bold;
         margin: 0;
         color: white;
+        margin-top: 10px;
       }
       :hover {
         cursor: pointer;
