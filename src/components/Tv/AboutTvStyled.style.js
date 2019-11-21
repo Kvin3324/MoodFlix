@@ -57,7 +57,7 @@ const AboutMovieStyled = styled.div`
     border: none;
   }
 
-  .about--episodes--next--img {
+  .about--episodes--next--img, .about--episodes--last--img {
     img {
       height: 167px;
       object-fit: contain;
