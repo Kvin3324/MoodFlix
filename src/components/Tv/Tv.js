@@ -12,7 +12,17 @@ function Tv(props) {
               <img src={`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}`} alt="poster" />
             </div>
             <div className="movie--title">
-              <h2>{props.movie.original_name}</h2>
+              {
+                function () {
+                  if (props.movie.media_type === "tv") {
+                    return(
+                      <h2>{props.movie.original_name} ({props.movie.media_type})</h2>
+                    )
+                    } else {
+                    return <h2>{props.movie.original_name}</h2>
+                  }
+                }()
+              }
             </div>
           </div>
         </Link>
