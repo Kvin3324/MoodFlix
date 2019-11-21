@@ -15,9 +15,14 @@
 }
 
 .left-section {
+  position: fixed;
   background-color: #21232A;
   margin-right: 2%;
   height: 100vh;
+}
+
+.right-section {
+  margin-left: 18%;
 }
 
 .filters {
