@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import AboutTvStyled from "./AboutTvStyled.style";
-// import AboutMovieStyled from "../Movie/AboutMovieStyled.style";
 
 function EventOverview(props) {
   const [data, setData] = useState([]);
@@ -131,7 +130,15 @@ function EventOverview(props) {
                         <div className="about--episodes--last">
                           <h3>Last episode:</h3>
                           <div className="about--episodes--last--img mb-4">
-                            <img src={`https://image.tmdb.org/t/p/w300/${data.last_episode_to_air.still_path}`} alt="last__eps__poster"></img>
+                            {
+                              function () {
+                                if (data.last_episode_to_air.still_path === null) {
+                                  return <img src="https://citainsp.org/wp-content/uploads/2016/01/default.jpg" alt="no__poster"></img>
+                                } else {
+                                  return <img src={`https://image.tmdb.org/t/p/w300/${data.last_episode_to_air.still_path}`} alt="last__eps__poster"></img>
+                                }
+                              }()
+                            }
                           </div>
                           <div className="about--episodes--last--title">
                             <h4> {data.last_episode_to_air.name} </h4>
@@ -146,29 +153,37 @@ function EventOverview(props) {
                       </div>
 
                       <div className="about--episodes col-lg-6">
-                        <div className="about--episodes--next">
-                          <h3>Next episode:</h3>
-                          <div className="about--episodes--next--img mb-4">
-                            {
-                              function () {
-                                if (data.next_episode_to_air.still_path === null) {
-                                  return <img src="https://citainsp.org/wp-content/uploads/2016/01/default.jpg" alt="no__poster"></img>
-                                } else {
-                                  return <img src={`https://image.tmdb.org/t/p/w300/${data.next_episode_to_air.still_path}`} alt="next__eps__poster"></img>
-                                }
-                              }()
+                        {
+                          function () {
+                            if (data.next_episode_to_air) {
+                              return(
+                                <div className="about--episodes--next">
+                                  <h3>Next episode:</h3>
+                                  <div className="about--episodes--next--img mb-4">
+                                    {
+                                      function () {
+                                          if (data.next_episode_to_air.still_path === null) {
+                                            return <img src="https://citainsp.org/wp-content/uploads/2016/01/default.jpg" alt="no__poster"></img>
+                                          } else {
+                                            return <img src={`https://image.tmdb.org/t/p/w300/${data.next_episode_to_air.still_path}`} alt="next__eps__poster"></img>
+                                          }
+                                      }()
+                                    }
+                                  </div>
+                                  <div className="about--episodes--next--title">
+                                    <h4> {data.next_episode_to_air.name} </h4>
+                                  </div>
+                                  <div className="about--episodes--next--number">
+                                    <p>episode number: {data.next_episode_to_air.episode_number} </p>
+                                  </div>
+                                  <div className="about--episodes--next--episode">
+                                    <p>release number: {data.next_episode_to_air.air_date} </p>
+                                  </div>
+                                </div>
+                              )
                             }
-                          </div>
-                          <div className="about--episodes--next--title">
-                            <h4> {data.next_episode_to_air.name} </h4>
-                          </div>
-                          <div className="about--episodes--next--number">
-                            <p>episode number: {data.next_episode_to_air.episode_number} </p>
-                          </div>
-                          <div className="about--episodes--next--episode">
-                            <p>release number: {data.next_episode_to_air.air_date} </p>
-                          </div>
-                        </div>
+                          }()
+                        }
                       </div>
                     </div>
                   </div>
