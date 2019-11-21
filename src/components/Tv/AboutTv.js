@@ -16,6 +16,10 @@ function EventOverview(props) {
     window.open(`https://www.youtube.com/results?search_query=${data.original_name}`, '_blank');
   }
 
+  function goBack() {
+    window.history.back();
+  }
+
   return (
     <React.Fragment>
       {
@@ -27,9 +31,7 @@ function EventOverview(props) {
               <React.Fragment>
                 <AboutTvStyled className="tv--about">
                   <div className="go--back">
-                    <a href="#/trending" alt="home">
-                      <i className="fas fa-home"></i>
-                    </a>
+                    <i className="fas fa-home" onClick={goBack}></i>
                   </div>
                   <div className="tv--about--header">
                     <div className="tv--about--backdrop">
