@@ -4,12 +4,9 @@ const AboutMovieStyled = styled.div`
   .go--back {
     position: absolute;
     top: 3%;
-    a {
-     color: white;
-     text-decoration: none;
-   }
    i {
      font-size: 1.5em;
+     cursor: pointer;
    }
   }
   color: white;
