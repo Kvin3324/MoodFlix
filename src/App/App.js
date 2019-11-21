@@ -25,7 +25,6 @@ function App() {
             </section>
             <section className="right-section col-lg-9">
               <Route exact path="/" component={Feed} />
-
               <Route exact path="/about/:id" component={AboutMovie} ></Route>
               <Route exact path="/aboutTv/:id" component={AboutTv} ></Route>
               <Route exact path="/trending" component={TrendingMovies} ></Route>
