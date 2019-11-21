@@ -10,8 +10,6 @@ function EventOverview(props) {
       .then(dataParsed => setData({ ...dataParsed }))
   }, []);
 
-  console.log(data);
-
   function openNewLink() {
     window.open(`https://www.youtube.com/results?search_query=${data.title}`, '_blank');
   }
