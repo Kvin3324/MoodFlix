@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import { Link } from "react-router-dom";
 import CategoriesStyled from "./CategoriesStyled.style";
 
 function Categories() {
@@ -24,7 +25,11 @@ function Categories() {
 
               if (data.length !== 0) {
                 return data.map((genre, index) => {
-                  return <li key={index}>{genre.name}</li>
+                  return (
+                    <Link to={`/byCategory/${genre.id}`} key={genre.id}>
+                      <li key={genre.id} className={genre.id}>{genre.name}</li>
+                    </Link>
+                  )
                 })
               }
             }()
