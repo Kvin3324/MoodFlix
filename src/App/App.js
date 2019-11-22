@@ -8,6 +8,7 @@ import AboutTv from "../components/Tv/AboutTv";
 import TrendingMovies from "../components/LeftSection/Filters/Trending/TrendingMovies";
 import TvMovies from "../components/LeftSection/Filters/TvMovies/FeedTvMovies";
 import Filters from '../components/Filters/Filters';
+import Results from '../container/Results';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
               <Route exact path="/aboutTv/:id" component={AboutTv} ></Route>
               <Route exact path="/trending" component={TrendingMovies} ></Route>
               <Route exact path="/tv&movies" component={TvMovies} ></Route>
+              <Route exact path="/byCategory/:id" component={Results} ></Route>
             </section>
           </div>
         </main>
