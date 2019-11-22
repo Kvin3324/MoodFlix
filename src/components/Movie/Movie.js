@@ -10,10 +10,26 @@ function Movie(props) {
         <Link to={`/aboutMovie/${props.movie.id}`}>
           <div className="movie--body mr-5">
             <div className="movie--img">
-              <img src={`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}`} alt="poster" />
+              {
+                function () {
+                  if (props.movie.poster_path === null) {
+                    return <img src="https://citainsp.org/wp-content/uploads/2016/01/default.jpg" alt="no__poster"></img>
+                  } else {
+                    return <img src={`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}`} alt="poster" />
+                  }
+                }()
+              }
             </div>
             <div className="movie--title">
-              <h2>{props.movie.title}</h2>
+              {
+                function () {
+                  if (props.movie.title.length > 30) {
+                    return <h2>{props.movie.title.substr(0, 20)}(...)</h2>
+                  } else {
+                    return <h2>{props.movie.title}</h2>
+                  }
+                }()
+              }
             </div>
           </div>
         </Link>
