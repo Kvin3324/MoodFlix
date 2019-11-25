@@ -46,6 +46,12 @@ function Results() {
           if (data.results.length === 0) return "loading";
 
           if (data.results.length !== 0) {
+            data.results.sort(function (a,b) {
+              if (a.original_title < b.original_title) return -1;
+              if (a.original_title > b.original_title) return 1;
+              return 0;
+            });
+
             return data.results.map((result, index) => {
               return <Movie movie={result} key={index} />
             })
