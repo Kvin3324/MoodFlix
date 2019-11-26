@@ -6,16 +6,14 @@ import 'rc-pagination/assets/index.css';
 function Results(props) {
   const [data, setData] = useState({
     results: [],
-    genreId: props.match.params.id,
     currentPage: 1,
     totalResults: 0,
     totalPages: 0
   });
 
   function getResults(page) {
-    // fetch("https://api.themoviedb.org/3/movie/popular?api_key=3466f7f79dd6bdfaf4b0e8b5480c2432&append_to_response=recommendations,top_rated&page=2")
-    // fetch(`https://api.themoviedb.org/3/discover/movie?api_key=3466f7f79dd6bdfaf4b0e8b5480c2432&with_genres=${data.genreId}&page=${page}`)
-    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=3466f7f79dd6bdfaf4b0e8b5480c2432&with_genres=${props.match.params.id}&page=${page}`)
+    // fetch("https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY_MOVIES}&append_to_response=recommendations,top_rated&page=2")
+    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY_MOVIES}&with_genres=${props.match.params.id}&page=${page}`)
       .then(response => response.json())
       .then(dataParsed => setData({
         results: dataParsed.results,
@@ -26,14 +24,9 @@ function Results(props) {
       )
   }
 
-  console.log(props.match.params.id);
-  console.log(data.results);
-  console.log(props);
-  
-
   useEffect(() => {
     getResults(data.currentPage);
-  }, [])
+  }, [props.match.params.id])
 
   function handleOnChangePage(page) {
     getResults(page);
