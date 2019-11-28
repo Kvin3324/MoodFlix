@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Movie from "../../../Movie/Movie";
 import Tv from "../../../Tv/Tv";
+import Loader from "../../../Loader/Loader";
 
 function TrendingMovies() {
   const [data, setData] = useState([]);
@@ -16,7 +17,7 @@ function TrendingMovies() {
       <h1 className=" mt-3 mb-5">Trending Movies & Tv (by week):</h1>
       {
         function () {
-          if (data.length === 0) return "loading";
+          if (data.length === 0) return <Loader/>;
 
           if (data.length !== 0) {
             return data.map((movie, index) => {

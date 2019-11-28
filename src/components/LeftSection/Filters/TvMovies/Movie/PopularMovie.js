@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MoviesStyled from "../../../../Feed/MoviesHome/MoviesStyled.style"
 import Slider from "../../../../Slider/Slider";
+import Loader from "../../../../Loader/Loader";
 
 function TrendingMovies() {
   const [data, setData] = useState([]);
@@ -16,7 +17,7 @@ function TrendingMovies() {
     <React.Fragment>
       {
         function () {
-          if (data.length === 0) return "loading";
+          if (data.length === 0) return <Loader/>;
 
           if (data.length !== 0) {
             return (

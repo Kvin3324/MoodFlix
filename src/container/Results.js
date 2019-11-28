@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Movie from "../components/Movie/Movie";
 import Pagination from 'rc-pagination';
 import 'rc-pagination/assets/index.css';
+import Loader from "../components/Loader/Loader";
 
 function Results(props) {
   const [data, setData] = useState({
@@ -44,7 +45,7 @@ function Results(props) {
       />
       {
         function () {
-          if (data.results.length === 0) return "loading";
+          if (data.results.length === 0) return <Loader/>;
 
           if (data.results.length !== 0) {
             data.results.sort(function (a,b) {

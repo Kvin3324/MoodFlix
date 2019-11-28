@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AboutTvStyled from "./AboutTvStyled.style";
+import Loader from "../Loader/Loader";
 
 function EventOverview(props) {
   const [data, setData] = useState([]);
@@ -24,7 +25,7 @@ function EventOverview(props) {
     <React.Fragment>
       {
         function () {
-          if (data.length === 0) return "loading";
+          if (data.length === 0) return <Loader/>;
 
           if (data.length !== 0) {
             return (

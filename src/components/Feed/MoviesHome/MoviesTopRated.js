@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Slider from "../../Slider/Slider";
 import Movie from "../../Movie/Movie";
+import Loader from "../../Loader/Loader";
 
 function MoviesTopRated() {
   const [data, setData] = useState([]);
@@ -21,7 +22,7 @@ function MoviesTopRated() {
           <Slider>
             {
               function () {
-                if (data.length === 0) return null;
+                if (data.length === 0) return <Loader/>;
 
                 if (data.length !== 0) {
                   return data.map((movie, index) => {
