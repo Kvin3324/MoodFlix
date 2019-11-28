@@ -52,6 +52,10 @@ const AboutMovieStyled = styled.div`
   button, button:hover {
     background-color: #21232A;
     border: none;
+      a {
+        text-decoration: none;
+        color: white;
+      }
   }
 
   .about--episodes--next--img, .about--episodes--last--img {
