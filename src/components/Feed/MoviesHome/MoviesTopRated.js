@@ -12,8 +12,6 @@ function MoviesTopRated() {
       .then(dataParsed => setData([...dataParsed.results]))
   }, []);
 
-  console.log(data);
-
   return(
       <React.Fragment>
         <div className="movies--feed col-lg-12">
