@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import SearchBarStyled from "./SearchBarStyled.style";
+import { Link } from "react-router-dom";
 
 function SearchBar() {
   const [data, setData] = useState({
@@ -8,26 +9,18 @@ function SearchBar() {
   })
 
   function searchResults(el) {
-    const newState = {...data}
-    console.log(`${el.target.value}`);
+    const newState = { ...data }
     newState.searchInput = el.target.value;
     setData(newState);
   }
-  console.log(data.searchInput);
 
-  // useEffect(() => {
-  //   fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY_MOVIES}&language=en-US&query=?&page=1&include_adult=false`)
-  //   .then(response => response.json())
-  //   .then(dataParsed => setData([...dataParsed.results]))
-  // })
-
-  console.log(data);
-
-  return(
+  return (
     <React.Fragment>
       <SearchBarStyled className="search--input">
-        <input type="search" placeholder="Search" onChange={ e =>searchResults(e)} />
-        <i className="fas fa-search"></i>
+        <input type="search" placeholder="Search" onChange={e => searchResults(e)} />
+        <Link to={`/searchResults?${data.searchInput}`} >
+          <i className="fas fa-search"></i>
+        </Link>
       </SearchBarStyled>
     </React.Fragment>
   )
