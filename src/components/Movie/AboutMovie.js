@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from "react";
 import AboutMovieStyled from "./AboutMovieStyled.style";
 import Loader from "../Loader/Loader";
+import ReactPlayer from "react-player";
 
 function AboutMovie(props) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie/${props.match.params.id}?api_key=${process.env.REACT_APP_API_KEY_MOVIES}&language=en-US`)
+    fetch(`https://api.themoviedb.org/3/movie/${props.match.params.id}?api_key=${process.env.REACT_APP_API_KEY_MOVIES}&language=en-US&append_to_response=videos`)
       .then(response => response.json())
       .then(dataParsed => setData({ ...dataParsed }))
   }, []);
+
+  console.log(data.videos);
+
 
   function goBack() {
     props.history.goBack(-1);
@@ -109,11 +113,11 @@ function AboutMovie(props) {
                     <h2>SYNOPSIS</h2>
                     <p>{data.overview}</p>
                   </div>
-                  <button className="btn btn-primary">
-                    <a href={`https://www.youtube.com/results?search_query=${data.title}`} rel="noopener noreferrer" target="_blank" >
-                      Watch BA
-                    </a>
-                  </button>
+                  <ReactPlayer
+                    url={`https://www.youtube.com/watch?v=${data.videos.results[0].key}`}
+                    width={"60%"}
+                    controls
+                  />
                 </AboutMovieStyled>
               </React.Fragment>
             )
