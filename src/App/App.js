@@ -9,6 +9,8 @@ import TrendingMovies from "../components/LeftSection/Filters/Trending/TrendingM
 import TvMovies from "../components/LeftSection/Filters/TvMovies/FeedTvMovies";
 import Filters from '../components/Filters/Filters';
 import Results from '../container/Results';
+import SearchBar from '../container/SearchBar/SearchBar';
+import SearchResults from '../components/SearchResults/SearchResults';
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
           <div className="row">
             <section className="left-section col-lg-2">
               <Title />
+              <SearchBar />
               <div className="filters">
                 <Filters />
               </div>
@@ -32,6 +35,7 @@ function App() {
               <Route exact path="/trending" component={TrendingMovies} ></Route>
               <Route exact path="/tv&movies" component={TvMovies} ></Route>
               <Route exact path="/byCategory/:id" component={Results} ></Route>
+              <Route exact path="/searchResults" component={SearchResults} ></Route>
             </section>
           </div>
         </main>
