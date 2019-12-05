@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, HashRouter } from "react-router-dom";
+import { Route, HashRouter, BrowserRouter } from "react-router-dom";
 import '../App.css'
 import Title from '../components/Header/Title';
 import Feed from '../container/Feed';
@@ -16,7 +16,7 @@ import CreateSession from '../components/Session/CreateSession/CreateSession';
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <div className="container App col-12">
         <Navbar />
         {/* <header className="App-header">
@@ -45,7 +45,7 @@ function App() {
           </div>
         </main>
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
