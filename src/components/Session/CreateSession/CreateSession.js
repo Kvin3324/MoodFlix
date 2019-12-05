@@ -33,9 +33,8 @@ function CreateSession() {
     console.log(data);
     console.log(window.localStorage.getItem("token"));
     
-
-
-    function goTo() {
+    function submitForm(e) {
+      e.preventDefault()
       const HTTPBody = {
         username: data.username,
         password: data.password,
@@ -47,21 +46,43 @@ function CreateSession() {
         })
         .then(response => response.json())
         .then(dataParsed => {
-          fetch(`https://api.themoviedb.org/3/authentication/session/new?request_token=${data.token}&api_key=${process.env.REACT_APP_API_KEY_MOVIES}`, {
+          fetch(`https://api.themoviedb.org/3/authentication/session/new?api_key=${process.env.REACT_APP_API_KEY_MOVIES}`, {
             method: 'POST',
             body: JSON.stringify(HTTPBody.request_token)
-          }
-          )
+          })
+          window.localStorage.setItem("sessionId", dataParsed.session_id);
         })
         .catch(error => alert(error));
-      // window.location.href = `https://api.themoviedb.org/3/authentication/token/validate_with_login?api_key=${process.env.REACT_APP_API_KEY_MOVIES}`;
-      // window.location.href = `https://www.themoviedb.org/authenticate/${data.token}?redirect_to=http://localhost:3000/#/approved      `
-
     }
+
+
+    // function goTo() {
+    //   const HTTPBody = {
+    //     username: data.username,
+    //     password: data.password,
+    //     request_token: data.token
+    //   }
+    //     fetch(`https://api.themoviedb.org/3/authentication/token/validate_with_login?api_key=${process.env.REACT_APP_API_KEY_MOVIES}`, {
+    //       method: 'POST',
+    //       body: JSON.stringify(HTTPBody)
+    //     })
+    //     .then(response => response.json())
+    //     .then(dataParsed => {
+    //       fetch(`https://api.themoviedb.org/3/authentication/session/new?api_key=${process.env.REACT_APP_API_KEY_MOVIES}`, {
+    //         method: 'POST',
+    //         body: JSON.stringify(HTTPBody.request_token)
+    //       })
+    //       window.localStorage.setItem("sessionId", dataParsed.session_id);
+    //     })
+    //     .catch(error => alert(error));
+    //   // window.location.href = `https://api.themoviedb.org/3/authentication/token/validate_with_login?api_key=${process.env.REACT_APP_API_KEY_MOVIES}`;
+    //   // window.location.href = `https://www.themoviedb.org/authenticate/${data.token}?redirect_to=http://localhost:3000/#/approved      `
+
+    // }
 
   return (
     <React.Fragment>
-      <form>
+      <form onsubmit={submitForm}>
         <div className="form-group">
           <label htmlFor="exampleInputUsername">Username</label>
           <input type="username" className="form-control" id="exampleInputUsername" placeholder="Enter username" onChange={handleChangeInputUsername} />
@@ -83,7 +104,8 @@ function CreateSession() {
           <input type="checkbox" className="form-check-input" id="exampleCheck1" />
           <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
         </div> */}
-        <button type="submit" className="btn btn-primary" onClick={goTo} >Submit</button>
+        {/* <button type="submit" className="btn btn-primary" onClick={goTo} >Submit</button> */}
+        <input type="submit" value="submit"/>
       </form>
     </React.Fragment>
   )
