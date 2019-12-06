@@ -35,22 +35,26 @@ function CreateSession() {
     
     function submitForm(e) {
       e.preventDefault()
-      const HTTPBody = {
-        username: data.username,
-        password: data.password,
-        request_token: data.token
-      }
         fetch(`https://api.themoviedb.org/3/authentication/token/validate_with_login?api_key=${process.env.REACT_APP_API_KEY_MOVIES}`, {
           method: 'POST',
-          body: JSON.stringify(HTTPBody)
+          body: JSON.stringify(
+            {
+              username: data.username,
+              password: data.password,
+              request_token: data.token
+            }
+          )
         })
-        .then(response => response.json())
+        .then(response => console.log(response))
         .then(dataParsed => {
           fetch(`https://api.themoviedb.org/3/authentication/session/new?api_key=${process.env.REACT_APP_API_KEY_MOVIES}`, {
             method: 'POST',
-            body: JSON.stringify(HTTPBody.request_token)
+            body: JSON.stringify({request_token: data.token})
           })
-          window.localStorage.setItem("sessionId", dataParsed.session_id);
+          .then(response => response.json())
+          .then(session => {
+            window.localStorage.setItem("sessionId", session.session_id);
+          })
         })
         .catch(error => alert(error));
     }
@@ -82,7 +86,7 @@ function CreateSession() {
 
   return (
     <React.Fragment>
-      <form onsubmit={submitForm}>
+      <form onSubmit={submitForm}>
         <div className="form-group">
           <label htmlFor="exampleInputUsername">Username</label>
           <input type="username" className="form-control" id="exampleInputUsername" placeholder="Enter username" onChange={handleChangeInputUsername} />

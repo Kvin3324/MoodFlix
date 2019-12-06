@@ -25,8 +25,8 @@ function Navbar() {
         window.location.href = `https://www.themoviedb.org/authenticate/${dataParsed.request_token}?redirect_to=${window.location.href}createSession`;
         window.localStorage.setItem("token", dataParsed.request_token);
         // window.location.href = `https://www.themoviedb.org/authenticate/${dataParsed.request_token}?redirect_to=http://localhost:3000/createSession`;
-      }
-        )
+        }
+      )
   }
 
 
