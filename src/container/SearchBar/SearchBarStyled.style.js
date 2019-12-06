@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const SearchBarStyled = styled.div`
-margin-bottom: 16%;
+margin-bottom: 8%;
   input {
     color: white;
     background-color: #232D32;
