@@ -113,11 +113,19 @@ function AboutMovie(props) {
                     <h2>SYNOPSIS</h2>
                     <p>{data.overview}</p>
                   </div>
-                  <ReactPlayer
-                    url={`https://www.youtube.com/watch?v=${data.videos.results[0].key}`}
-                    width={"60%"}
-                    controls
-                  />
+                  {
+                    function () {
+                      if (data.videos.results[0]) {
+                        return (
+                          <ReactPlayer
+                            url={`https://www.youtube.com/watch?v=${data.videos.results[0].key}`}
+                            width={"60%"}
+                            controls
+                          />
+                        )
+                      }
+                    }()
+                  }
                 </AboutMovieStyled>
               </React.Fragment>
             )
