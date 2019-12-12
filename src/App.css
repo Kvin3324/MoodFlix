@@ -40,3 +40,9 @@ h1, h3 {
 .react-multiple-carousel__arrow {
   z-index: 10!important;
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .right-section {
+    margin-left: 30%;
+  }
+}
