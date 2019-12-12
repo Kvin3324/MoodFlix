@@ -14,22 +14,24 @@ function TrendingMovies() {
 
   return (
     <React.Fragment>
-      <h1 className=" mt-3 mb-5">Trending Movies & Tv (by week):</h1>
-      {
-        function () {
-          if (data.length === 0) return <Loader/>;
+      <div className="col-md-12">
+        <h1 className=" mt-3 mb-5">Trending Movies & Tv (by week):</h1>
+        {
+          function () {
+            if (data.length === 0) return <Loader/>;
 
-          if (data.length !== 0) {
-            return data.map((movie, index) => {
-              if (movie.media_type === "movie") {
-                return <Movie movie={movie} key={index} />
-              } else if (movie.media_type === "tv") {
-                return <Tv movie={movie} key={index} />
-              }
-            })
-          }
-        }()
-      }
+            if (data.length !== 0) {
+              return data.map((movie, index) => {
+                if (movie.media_type === "movie") {
+                  return <Movie movie={movie} key={index} />
+                } else if (movie.media_type === "tv") {
+                  return <Tv movie={movie} key={index} />
+                }
+              })
+            }
+          }()
+        }
+      </div>
     </React.Fragment>
   )
 }
