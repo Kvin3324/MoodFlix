@@ -14,6 +14,7 @@ import SearchBar from '../container/SearchBar/SearchBar';
 import SearchResults from '../components/SearchResults/SearchResults';
 import Navbar from '../components/Navbar/Navbar';
 import CreateSession from '../components/Session/CreateSession/CreateSession';
+import AboutSeason from "../components/Tv/SeasonsEp/Seasons/AboutSeason/AboutSeason";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
               <Route exact path="/tvList" component={TvList} ></Route>
               <Route exact path="/byCategory/:id" component={Results} ></Route>
               <Route exact path="/searchResults" component={SearchResults} ></Route>
+              <Route exact path="/aboutSeason/:id/season/:season_number" component={AboutSeason} ></Route>
               <Route exact path="/createSession" component={CreateSession} ></Route>
             </section>
           </div>
