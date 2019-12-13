@@ -1,5 +1,6 @@
 import React from "react";
 import SeasonsStyled from "./SeasonsStyled.style";
+import {Link} from "react-router-dom";
 
 function Seasons(props) {
 
@@ -21,10 +22,12 @@ function Seasons(props) {
           </div>
           <div className=" ml-3">
             <div className="season--title">
-              <h2>{props.data.name}</h2>
+              <Link to={`/aboutSeason/${props.tv.id}/season/${props.seasons.season_number}`}>
+                <h2>{props.data.name}</h2>
+              </Link>
             </div>
-            <div className="season--air--date">
-              <p>{convertDate()}</p>
+            <div className="season--about">
+              <p>{props.data.episode_count} episodes have started the <strong>{convertDate()}</strong></p>
             </div>
             <div className="season--overview">
               <p>{props.data.overview}</p>
