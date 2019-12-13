@@ -24,7 +24,7 @@ function AboutTv(props) {
   }, []);
 
   console.log(data);
-  console.log(data.showSeasons);
+  console.log(data.seasons[1]);
   
 
   function goBack() {
@@ -133,6 +133,8 @@ function AboutTv(props) {
   }
 
 
+
+
   return(
     <React.Fragment>
       {
@@ -151,7 +153,7 @@ function AboutTv(props) {
                        function () {
                          if (data.showSeasons === true) {
                            return data.seasons.map((season, index) => {
-                             return <Seasons data={season} key={index} />
+                             return <Seasons data={season} tv={data.data} seasons={season} key={index} />
                            })
                          }
                        }()
