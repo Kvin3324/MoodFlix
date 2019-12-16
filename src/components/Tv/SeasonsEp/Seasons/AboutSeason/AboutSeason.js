@@ -15,15 +15,34 @@ function AboutSeason(props) {
 
   console.log(data);
 
-  // function noLoop(iterator = 0, entier) {
-  //   if (iterator < entier) {
-  //     console.log(iterator);
-  //     iterator += 1;
-  //     return noLoop(iterator, entier);
-  //   }
-  // }
+  function convertDate() {
+    const date = new Date(data.air_date);
+    const day = date.getDay();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
 
-  // noLoop(0, 5);
+    return `${day}/${month}/${year}`;
+  }
+
+  function seasonNumber(sn) {
+    if (sn.season_number > 9) {
+      return (
+        `S${sn.season_number}`
+      )
+    } else {
+      return `S0${sn.season_number}`;
+    }
+  }
+
+  function episodeNumber(epn) {
+    if (epn.episode_number > 9) {
+      return (
+        `E${epn.episode_number}`
+      )
+    } else {
+      return `E0${epn.episode_number}`;
+    }
+  }
 
   return (
     <React.Fragment>
@@ -40,18 +59,18 @@ function AboutSeason(props) {
                 </div>
                 <div className="season--about col-lg-12">
                   <div className="row">
-                  <div className="season--poster col-lg-3">
-                    <img src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`} alt="poster"></img>
-                  </div>
-                  <div className="season--overview col-lg-4">
-                    <h3>Synopsis</h3>
-                    <p> {data.overview}  </p>
-                  </div>
-                  <div className="season--infos col-lg-5">
-                    <h3>Infos Season</h3>
-                    <p>{data.episodes.length} episodes  </p>
-                    <p>Season released in {data.air_date}  </p>
-                  </div>
+                    <div className="season--poster col-lg-3">
+                      <img src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`} alt="poster"></img>
+                    </div>
+                    <div className="season--overview col-lg-4">
+                      <h3>Synopsis</h3>
+                      <p> {data.overview}  </p>
+                    </div>
+                    <div className="season--infos col-lg-5">
+                      <h3>Infos Season</h3>
+                      <p>{data.episodes.length} episodes  </p>
+                      <p>Season released in {convertDate()}  </p>
+                    </div>
                   </div>
                 </div>
                 <div className="season--casting mt-5">
@@ -62,7 +81,7 @@ function AboutSeason(props) {
                     <div className="row">
                       {
                         data.credits.cast.map((people, index) => {
-                          return(
+                          return (
                             <div className="about--people col-lg-3" key={index}>
                               <div className="about--people--img">
                                 <img src={`https://image.tmdb.org/t/p/w500/${people.profile_path}`} alt="poster"></img>
@@ -85,28 +104,50 @@ function AboutSeason(props) {
                     <h1>Video(s) of the Season {data.season_number}</h1>
                   </div>
                   <div className="season--videos">
-                      {
-                        function () {
-                          if (data.videos.results) {
-                            return data.videos.results.map((video, index) => {
-                              return(
-                                <ReactPlayer
-                                  url={`https://www.youtube.com/watch?v=${video.key}`}
-                                  width={"60%"}
-                                  controls
-                                  key={index}
-                                />
-                              )
-                            })
-                          }
-                        }()
-                      }
+                    {
+                      function () {
+                        if (data.videos.results) {
+                          return data.videos.results.map((video, index) => {
+                            return (
+                              <ReactPlayer
+                                url={`https://www.youtube.com/watch?v=${video.key}`}
+                                width={"60%"}
+                                controls
+                                key={index}
+                              />
+                            )
+                          })
+                        }
+                      }()
+                    }
                   </div>
                 </div>
                 <div className="season--list--episode">
-                      <SeasonsStyled>
-                        
-                      </SeasonsStyled>
+                  <h1 className="mt-5">Episodes of the season {data.season_number}</h1>
+                  {
+                    function () {
+                      return data.episodes.map((episode, index) => {
+                        return (
+                          <SeasonsStyled>
+                            <div className="season episode mt-3" key={index}>
+                              <div className="episode--poster">
+                                <img src={`https://image.tmdb.org/t/p/w500/${episode.still_path}`} alt="poster"></img>
+                              </div>
+                              <div className="episode--about ml-3">
+                                <div className="episode--about--info">
+                                  <p>{seasonNumber(episode)}{episodeNumber(episode)} - {episode.name} </p>
+                                  <p> {convertDate()} </p>
+                                </div>
+                                <div className="episode--about--overview">
+                                  <p>{episode.overview}</p>
+                                </div>
+                              </div>
+                            </div>
+                          </SeasonsStyled>
+                        )
+                      })
+                    }()
+                  }
                 </div>
               </AboutSeasonStyled>
             )
