@@ -1,5 +1,5 @@
 import React, {useEffect, useRef} from "react";
-import {TweenMax} from "gsap";
+import {gsap} from "gsap/dist/gsap";
 import LoaderStyle from "./LoaderStyle.style";
 
 const Loader = () => {
@@ -9,13 +9,13 @@ const Loader = () => {
   const green = useRef(null);
 
   useEffect(() => {
-    TweenMax.fromTo([blue.current, yellow.current],
+    gsap.fromTo([blue.current, yellow.current],
       0,5,
       { y: 18 },
       { y: 18, yoyo: true, repeat: -1 }
     );
 
-    TweenMax.fromTo([red.current, green.current],
+    gsap.fromTo([red.current, green.current],
       0,5,
       { y: -18 },
       { y: 18, repeat: -1, yoyo: true }
