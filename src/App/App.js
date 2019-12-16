@@ -18,9 +18,6 @@ function App() {
   return (
     <BrowserRouter>
       <div className="container App col-12">
-        {/* <header className="App-header">
-          <Title />
-        </header> */}
         <main>
           <div className="row">
             <section className="left-section col-lg-2">
