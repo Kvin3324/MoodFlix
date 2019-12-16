@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function Movie(props) {
   return (
     <React.Fragment>
-      <MoviesStyled className="movie mr-5">
+      <MoviesStyled className="movie">
         <Link to={`/aboutMovie/${props.movie.id}`}>
           <div className="movie--body mr-5">
             <div className="movie--img">
@@ -23,8 +23,8 @@ function Movie(props) {
             <div className="movie--title">
               {
                 function () {
-                  if (props.movie.title.length > 30) {
-                    return <h2>{props.movie.title.substr(0, 20)}(...)</h2>
+                  if (props.movie.title.length > 20) {
+                    return <h2>{props.movie.title.substr(0, 10)}(...)</h2>
                   } else {
                     return <h2>{props.movie.title}</h2>
                   }
