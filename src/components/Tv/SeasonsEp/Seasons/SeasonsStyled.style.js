@@ -9,6 +9,10 @@ const SeasonsStyled = styled.div`
           img {
             width: 15vw;
           }
+          a {
+            color: white;
+            text-decoration: none;
+          }
       }
 `
 

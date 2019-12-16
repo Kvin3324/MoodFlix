@@ -9,6 +9,9 @@ const MoviesStyled = styled.div`
         width: 10vw;
         object-fit: cover;
       }
+      a {
+        text-decoration: none;
+      }
       h2 {
         text-align: center;
         font-size: 16px;

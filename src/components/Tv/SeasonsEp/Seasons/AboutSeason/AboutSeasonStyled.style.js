@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 const AboutSeasonStyled = styled.div`
   color: white;
-    .season--title {
-      margin-bottom: 6%;
+  .season--title {
+    margin-bottom: 6%;
       h1 {
         text-align: center;
         font-size: 2.4em;

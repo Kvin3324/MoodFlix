@@ -7,6 +7,9 @@ const CategoriesStyled = styled.div`
   :hover {
     border-left: 1px solid #0CD0FC;
   }
+  a {
+    text-decoration: none;
+  }
   h3 {
     font-weight: bold;
       :hover {
