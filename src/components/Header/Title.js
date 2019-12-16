@@ -4,7 +4,7 @@ import TitleStyled from "./TitleStyled.style";
 function Title() {
   return(
     <TitleStyled>
-      <a href="/#" alt="home">
+      <a href="/" alt="home">
         MoodFlix
       </a>
       </TitleStyled>
