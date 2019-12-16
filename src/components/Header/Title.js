@@ -1,13 +1,14 @@
 import React from "react";
 import TitleStyled from "./TitleStyled.style";
+import { NavLink } from "react-router-dom";
 
 function Title() {
   return(
     <TitleStyled>
-      <a href="/" alt="home">
+      <NavLink to="/">
         MoodFlix
-      </a>
-      </TitleStyled>
+      </NavLink>
+    </TitleStyled>
   )
 }
 
