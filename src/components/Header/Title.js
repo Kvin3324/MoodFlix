@@ -5,7 +5,7 @@ function Title() {
   return(
     <TitleStyled>
       <a href="/#" alt="home">
-        Wiki Mood
+        MoodFlix
       </a>
       </TitleStyled>
   )
