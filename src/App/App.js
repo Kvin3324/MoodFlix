@@ -12,15 +12,12 @@ import Filters from '../components/Filters/Filters';
 import Results from '../container/Results';
 import SearchBar from '../container/SearchBar/SearchBar';
 import SearchResults from '../components/SearchResults/SearchResults';
-import Navbar from '../components/Navbar/Navbar';
-import CreateSession from '../components/Session/CreateSession/CreateSession';
 import AboutSeason from "../components/Tv/SeasonsEp/Seasons/AboutSeason/AboutSeason";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="container App col-12">
-        <Navbar />
         {/* <header className="App-header">
           <Title />
         </header> */}
@@ -43,7 +40,6 @@ function App() {
               <Route exact path="/byCategory/:id" component={Results} ></Route>
               <Route exact path="/searchResults" component={SearchResults} ></Route>
               <Route exact path="/aboutSeason/:id/season/:season_number" component={AboutSeason} ></Route>
-              <Route exact path="/createSession" component={CreateSession} ></Route>
             </section>
           </div>
         </main>
