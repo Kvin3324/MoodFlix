@@ -49,8 +49,7 @@ function TvList() {
           if (data.TvResults.length !== 0) {
             return data.TvResults.map((tv, index) => {
               return (
-                <React.Fragment>
-                  <MoviesStyled className="mr-5">
+                  <MoviesStyled className="mr-5" key={index}>
                     <div className="movie--body mr-5" key={index}>
                       <Link to={`/aboutTv/${tv.id}`}>
                         <div className="movie--img">
@@ -62,7 +61,6 @@ function TvList() {
                       </Link>
                     </div>
                   </MoviesStyled>
-                </React.Fragment>
               )
             })
           }
